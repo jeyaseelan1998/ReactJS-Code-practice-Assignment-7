@@ -15,20 +15,14 @@ import VideoContext from './context/VideoContext'
 
 import './App.css'
 
-const reactionTypesConstants = {
-  liked: 'LIKED',
-  disliked: 'DISLIKED',
-  initial: 'NONE',
-}
-
 class App extends Component {
   state = {
-    darkMode: false,
+    $darkmode: false,
     savedVideos: [],
   }
 
   toggleTheme = () => {
-    this.setState(prevState => ({darkMode: !prevState.darkMode}))
+    this.setState(prevState => ({$darkmode: !prevState.$darkmode}))
   }
 
   onSaveVideo = videoItemDetails => {
@@ -43,44 +37,12 @@ class App extends Component {
     }))
   }
 
-  onLikeVideo = id => {
-    this.setState(prevState => ({
-      savedVideos: prevState.savedVideos.map(video =>
-        video.id === id
-          ? {
-              ...video,
-              reactionType:
-                video.reactionType === reactionTypesConstants.liked
-                  ? reactionTypesConstants.initial
-                  : reactionTypesConstants.liked,
-            }
-          : video,
-      ),
-    }))
-  }
-
-  onDisLikeVideo = id => {
-    this.setState(prevState => ({
-      savedVideos: prevState.savedVideos.map(video =>
-        video.id === id
-          ? {
-              ...video,
-              reactionType:
-                video.reactionType === reactionTypesConstants.disliked
-                  ? reactionTypesConstants.initial
-                  : reactionTypesConstants.disliked,
-            }
-          : video,
-      ),
-    }))
-  }
-
   render() {
-    const {darkMode, savedVideos} = this.state
+    const {$darkmode, savedVideos} = this.state
     return (
       <ThemeContext.Provider
         value={{
-          darkMode,
+          $darkmode,
           toggleTheme: this.toggleTheme,
         }}
       >
@@ -89,8 +51,6 @@ class App extends Component {
             savedVideos,
             onSaveVideo: this.onSaveVideo,
             onRemoveVideo: this.onRemoveVideo,
-            onLikeVideo: this.onLikeVideo,
-            onDisLikeVideo: this.onDisLikeVideo,
           }}
         >
           <Switch>

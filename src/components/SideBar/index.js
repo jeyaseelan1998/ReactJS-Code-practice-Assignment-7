@@ -26,45 +26,48 @@ const SideBar = props => {
   return (
     <ThemeContext.Consumer>
       {value => {
-        const {darkMode} = value
+        const {$darkmode} = value
 
         return (
-          <SideBarContainer darkMode={darkMode}>
+          <SideBarContainer $darkmode={$darkmode}>
             <SideBarNavItemsList>
-              <NavItem darkMode={darkMode} active={path === '/'}>
-                <NavLink to="/" active={path === '/'}>
-                  <HomeIcon active={path === '/'} darkMode={darkMode} />
-                  <NavLabel darkMode={darkMode}>Home</NavLabel>
+              <NavItem $darkmode={$darkmode} $active={path === '/'}>
+                <NavLink to="/" $active={path === '/'}>
+                  <HomeIcon $active={path === '/'} $darkmode={$darkmode} />
+                  <NavLabel $darkmode={$darkmode}>Home</NavLabel>
                 </NavLink>
               </NavItem>
-              <NavItem darkMode={darkMode} active={path === '/trending'}>
-                <NavLink to="/trending" active={path === '/trending'}>
+              <NavItem $darkmode={$darkmode} $active={path === '/trending'}>
+                <NavLink to="/trending" $active={path === '/trending'}>
                   <TrendingIcon
-                    active={path === '/trending'}
-                    darkMode={darkMode}
+                    $active={path === '/trending'}
+                    $darkmode={$darkmode}
                   />
-                  <NavLabel darkMode={darkMode}>Trending</NavLabel>
+                  <NavLabel $darkmode={$darkmode}>Trending</NavLabel>
                 </NavLink>
               </NavItem>
-              <NavItem darkMode={darkMode} active={path === '/gaming'}>
-                <NavLink to="/gaming" active={path === '/gaming'}>
-                  <GamingIcon active={path === '/gaming'} darkMode={darkMode} />
-                  <NavLabel darkMode={darkMode}>Gaming</NavLabel>
+              <NavItem $darkmode={$darkmode} $active={path === '/gaming'}>
+                <NavLink to="/gaming" $active={path === '/gaming'}>
+                  <GamingIcon
+                    $active={path === '/gaming'}
+                    $darkmode={$darkmode}
+                  />
+                  <NavLabel $darkmode={$darkmode}>Gaming</NavLabel>
                 </NavLink>
               </NavItem>
-              <NavItem darkMode={darkMode} active={path === '/saved-videos'}>
-                <NavLink to="/saved-videos" active={path === '/saved-videos'}>
+              <NavItem $darkmode={$darkmode} $active={path === '/saved-videos'}>
+                <NavLink to="/saved-videos" $active={path === '/saved-videos'}>
                   <PlaylistAddIcon
-                    active={path === '/saved-videos'}
-                    darkMode={darkMode}
+                    $active={path === '/saved-videos'}
+                    $darkmode={$darkmode}
                   />
-                  <NavLabel darkMode={darkMode}>Saved videos</NavLabel>
+                  <NavLabel $darkmode={$darkmode}>Saved videos</NavLabel>
                 </NavLink>
               </NavItem>
             </SideBarNavItemsList>
 
             <Footer>
-              <FooterHeading darkMode={darkMode}>CONTACT US</FooterHeading>
+              <FooterHeading $darkmode={$darkmode}>CONTACT US</FooterHeading>
               <FooterLogoGroup>
                 <FooterLogo
                   src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
@@ -80,7 +83,7 @@ const SideBar = props => {
                   alt="linked in logo"
                 />
               </FooterLogoGroup>
-              <FooterDescription darkMode={darkMode}>
+              <FooterDescription $darkmode={$darkmode}>
                 Enjoy! Now to see your channels and recommendations!
               </FooterDescription>
             </Footer>

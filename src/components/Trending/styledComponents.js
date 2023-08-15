@@ -5,7 +5,7 @@ export const TrendingContainer = styled.div`
   flex-grow: 1;
   height: 90vh;
   overflow-y: auto;
-  background-color: ${props => (props.darkMode ? '#0f0f0f' : '#f9f9f9')};
+  background-color: ${props => (props.$darkmode ? '#0f0f0f' : '#f9f9f9')};
   display: flex;
   flex-direction: column;
 `
@@ -29,7 +29,7 @@ export const FailureViewHeading = styled.h1`
   font-size: 24px;
   font-weight: 600;
   line-height: 1.2;
-  color: ${props => (props.darkMode ? '#f5f6f8' : ' #00306e')};
+  color: ${props => (props.$darkmode ? '#f5f6f8' : ' #00306e')};
 `
 
 export const FailureViewDescription = styled.p`
@@ -37,7 +37,7 @@ export const FailureViewDescription = styled.p`
   font-family: Roboto;
   font-size: 14px;
   font-weight: 500;
-  color: ${props => (props.darkMode ? '#cccccc' : '#7e858e')};
+  color: ${props => (props.$darkmode ? '#cccccc' : '#7e858e')};
 `
 
 export const RetryButton = styled.button`
@@ -64,14 +64,14 @@ export const Header = styled.div`
   padding: 25px 35px;
   display: flex;
   align-items: center;
-  background-color: ${props => (props.darkMode ? '#181818' : '#f1f1f1')};
+  background-color: ${props => (props.$darkmode ? '#181818' : '#f1f1f1')};
 `
 
 export const IconContainer = styled.div`
   height: 70px;
   width: 70px;
   border-radius: 50px;
-  background-color: ${props => (props.darkMode ? '#0f0f0f' : '#e1e8f0')};
+  background-color: ${props => (props.$darkmode ? '#0f0f0f' : '#e1e8f0')};
   display: grid;
   place-items: center;
   margin-right: 25px;
@@ -88,5 +88,5 @@ export const Heading = styled.h1`
   font-size: 32px;
   font-weight: 600;
   line-height: 1.2;
-  color: ${props => (props.darkMode ? '#f5f6f8' : ' #00306e')};
+  color: ${props => (props.$darkmode ? '#f5f6f8' : ' #00306e')};
 `

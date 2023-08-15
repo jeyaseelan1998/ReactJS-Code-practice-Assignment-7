@@ -79,7 +79,7 @@ class Login extends Component {
     return (
       <ThemeContext.Consumer>
         {value => {
-          const {darkMode} = value
+          const {$darkmode} = value
           const {
             showPassword,
             showError,
@@ -88,16 +88,16 @@ class Login extends Component {
             password,
           } = this.state
 
-          const websiteLogoUrl = darkMode
+          const websiteLogoUrl = $darkmode
             ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
             : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
 
           return (
-            <LoginRouteContainer darkMode={darkMode}>
-              <LoginForm darkMode={darkMode} onSubmit={this.onSubmitLogin}>
+            <LoginRouteContainer $darkmode={$darkmode}>
+              <LoginForm $darkmode={$darkmode} onSubmit={this.onSubmitLogin}>
                 <WebsiteLogo alt="website logo" src={websiteLogoUrl} />
 
-                <LabelName htmlFor="username" darkMode={darkMode}>
+                <LabelName htmlFor="username" $darkmode={$darkmode}>
                   USERNAME
                 </LabelName>
                 <InputField
@@ -105,11 +105,11 @@ class Login extends Component {
                   value={username}
                   id="username"
                   onChange={this.onChangeTextInput}
-                  darkMode={darkMode}
+                  $darkmode={$darkmode}
                   placeholder="Username"
                 />
 
-                <LabelName htmlFor="password" darkMode={darkMode}>
+                <LabelName htmlFor="password" $darkmode={$darkmode}>
                   PASSWORD
                 </LabelName>
                 <InputField
@@ -117,7 +117,7 @@ class Login extends Component {
                   value={password}
                   id="password"
                   onChange={this.onChangeTextInput}
-                  darkMode={darkMode}
+                  $darkmode={$darkmode}
                   placeholder="Password"
                 />
 
@@ -128,7 +128,7 @@ class Login extends Component {
                     onChange={this.onTogglePasswordVisibility}
                   />
                   <CheckboxInputLabel
-                    darkMode={darkMode}
+                    $darkmode={$darkmode}
                     htmlFor="checkboxInput"
                   >
                     Show Password
@@ -137,7 +137,7 @@ class Login extends Component {
 
                 <Button type="submit">Login</Button>
                 {showError && (
-                  <ErrorMsg darkMode={darkMode}>*{errorMsg}</ErrorMsg>
+                  <ErrorMsg $darkmode={$darkmode}>*{errorMsg}</ErrorMsg>
                 )}
               </LoginForm>
             </LoginRouteContainer>

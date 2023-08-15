@@ -11,7 +11,7 @@ export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: ${props => (props.darkMode ? '#212121' : '#ffffff')};
+  background-color: ${props => (props.$darkmode ? '#212121' : '#ffffff')};
   height: 10vh;
 
   @media screen and (min-width: 768px) {
@@ -104,24 +104,24 @@ export const SunIcon = styled(FiSun)`
 export const HamburgerMenuIcon = styled(GiHamburgerMenu)`
   height: 25px;
   width: 25px;
-  color: ${props => (props.darkMode ? '#f1f1f1' : '#1e293b')};
+  color: ${props => (props.$darkmode ? '#f1f1f1' : '#1e293b')};
 `
 
 export const CloseIcon = styled(AiOutlineClose)`
   height: 15px;
   width: 15px;
-  color: ${props => (props.darkMode ? '#f1f1f1' : '#1e293b')};
+  color: ${props => (props.$darkmode ? '#f1f1f1' : '#1e293b')};
 `
 
 export const LogoutIcon = styled(FiLogOut)`
   height: 25px;
   width: 25px;
-  color: ${props => (props.darkMode ? '#f1f1f1' : '#1e293b')};
+  color: ${props => (props.$darkmode ? '#f1f1f1' : '#1e293b')};
 `
 
 export const StyledPopup = styled(Popup)`
   &-content {
-    background-color: ${props => (props.darkMode ? '#212121' : '#fff')};
+    background-color: ${props => (props.$darkmode ? '#212121' : '#fff')};
     height: 100%;
     width: 100%;
   }
@@ -134,7 +134,7 @@ export const StyledLogoutPopup = styled(Popup)`
   }
 
   &-content {
-    background-color: ${props => (props.darkMode ? '#212121' : '#fff')};
+    background-color: ${props => (props.$darkmode ? '#212121' : '#fff')};
     border-radius: 12px;
     padding: 25px;
     display: flex;
@@ -148,7 +148,7 @@ export const AlertText = styled.p`
   font-family: Roboto;
   text-align: center;
   margin-bottom: 35px;
-  color: ${props => (props.darkMode ? '#f9f9f9' : '#181818')};
+  color: ${props => (props.$darkmode ? '#f9f9f9' : '#181818')};
 `
 
 export const ButtonGroup = styled.div`

@@ -13,7 +13,7 @@ export const SideBarContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: ${props => (props.darkMode ? '#212121' : '#ffffff')};
+  background-color: ${props => (props.$darkmode ? '#212121' : '#ffffff')};
 
   @media screen and (max-width: 767px) {
     height: fit-content;
@@ -32,7 +32,7 @@ export const SideBarNavItemsList = styled.ul`
 export const NavItem = styled.li`
   list-style: none;
   background-color: ${props =>
-    props.active ? (props.darkMode ? '#383838' : '#e2e8f0') : 'transparent'};
+    props.$active ? (props.$darkmode ? '#383838' : '#e2e8f0') : 'transparent'};
 `
 
 export const NavLink = styled(Link)`
@@ -44,7 +44,7 @@ export const NavLink = styled(Link)`
   color: black;
   font-family: Roboto;
   font-size: 16px;
-  font-weight: ${props => (props.active ? 500 : 400)};
+  font-weight: ${props => (props.$active ? 500 : 400)};
 
   @media screen and (max-width: 767px) {
     justify-content: center;
@@ -53,7 +53,7 @@ export const NavLink = styled(Link)`
 
 export const NavLabel = styled.span`
   width: 150px;
-  color: ${props => (props.darkMode ? '#f1f1f1' : '#383838')};
+  color: ${props => (props.$darkmode ? '#f1f1f1' : '#383838')};
 `
 
 export const HomeIcon = styled(AiFillHome)`
@@ -61,7 +61,7 @@ export const HomeIcon = styled(AiFillHome)`
   width: 15px;
   margin-right: 15px;
   color: ${props =>
-    props.active ? '#ff0b37' : props.darkMode ? '#f1f1f1' : '#383838'};
+    props.$active ? '#ff0b37' : props.$darkmode ? '#f1f1f1' : '#383838'};
 `
 
 export const TrendingIcon = styled(HiFire)`
@@ -69,21 +69,21 @@ export const TrendingIcon = styled(HiFire)`
   width: 15px;
   margin-right: 15px;
   color: ${props =>
-    props.active ? '#ff0b37' : props.darkMode ? '#f1f1f1' : '#383838'};
+    props.$active ? '#ff0b37' : props.$darkmode ? '#f1f1f1' : '#383838'};
 `
 export const GamingIcon = styled(SiYoutubegaming)`
   height: 15px;
   width: 15px;
   margin-right: 15px;
   color: ${props =>
-    props.active ? '#ff0b37' : props.darkMode ? '#f1f1f1' : '#383838'};
+    props.$active ? '#ff0b37' : props.$darkmode ? '#f1f1f1' : '#383838'};
 `
 export const PlaylistAddIcon = styled(MdPlaylistAdd)`
   height: 15px;
   width: 15px;
   margin-right: 15px;
   color: ${props =>
-    props.active ? '#ff0b37' : props.darkMode ? '#f1f1f1' : '#383838'};
+    props.$active ? '#ff0b37' : props.$darkmode ? '#f1f1f1' : '#383838'};
 `
 
 export const Footer = styled.footer`
@@ -99,7 +99,7 @@ export const FooterHeading = styled.p`
   font-family: 'Roboto';
   font-size: 28px;
   font-weight: 600;
-  color: ${props => (props.darkMode ? '#f1f1f1' : '#181818')};
+  color: ${props => (props.$darkmode ? '#f1f1f1' : '#181818')};
 
   margin-bottom: 15px;
 `
@@ -119,6 +119,6 @@ export const FooterDescription = styled.p`
   font-family: 'Roboto';
   font-size: 16px;
   font-weight: 500;
-  color: ${props => (props.darkMode ? '#e2e8f0' : '#1e293b')};
+  color: ${props => (props.$darkmode ? '#e2e8f0' : '#1e293b')};
   margin-top: 15px;
 `

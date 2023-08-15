@@ -27,14 +27,14 @@ const SavedVideoItem = props => {
   return (
     <ThemeContext.Consumer>
       {value => {
-        const {darkMode} = value
+        const {$darkmode} = value
 
         return (
           <VideoItemList>
             <VideoLink to={`/videos/${id}`}>
               <VideoThumbnail src={thumbnailUrl} alt="video thumbnail" />
               <VideoDetails>
-                <VideoName darkMode={darkMode}>{title}</VideoName>
+                <VideoName $darkmode={$darkmode}>{title}</VideoName>
                 <ChannelName>{channel.name}</ChannelName>
                 <Statistics>
                   <ChannelName>{viewCount} views</ChannelName>

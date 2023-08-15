@@ -74,7 +74,7 @@ class Home extends Component {
     const response = await fetch(apiUrl, options)
     const data = await response.json()
 
-    if (response.ok === true) {
+    if (response.ok) {
       const updatedData = this.getUpdatedData(data.videos)
       this.setState({
         apiStatus: apiStatusConstants.success,
@@ -89,17 +89,17 @@ class Home extends Component {
     this.setState({showBanner: false})
   }
 
-  renderEmptyView = darkMode => {
+  renderEmptyView = $darkmode => {
     const imageUrl =
       'https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png'
 
     return (
       <FailureViewContainer>
         <FailureViewImage src={imageUrl} alt="no videos" />
-        <FailureViewHeading darkMode={darkMode}>
+        <FailureViewHeading $darkmode={$darkmode}>
           No Search results found
         </FailureViewHeading>
-        <FailureViewDescription darkMode={darkMode}>
+        <FailureViewDescription $darkmode={$darkmode}>
           Try different key words or remove search filter
         </FailureViewDescription>
         <RetryButton type="button" onClick={this.getVideosList}>
@@ -109,11 +109,11 @@ class Home extends Component {
     )
   }
 
-  renderSuccessView = darkMode => {
+  renderSuccessView = $darkmode => {
     const {videosList} = this.state
 
     if (videosList.length === 0) {
-      return this.renderEmptyView(darkMode)
+      return this.renderEmptyView($darkmode)
     }
 
     return (
@@ -125,18 +125,18 @@ class Home extends Component {
     )
   }
 
-  renderFailueView = darkMode => {
-    const imageUrl = darkMode
+  renderFailureView = $darkmode => {
+    const imageUrl = $darkmode
       ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
       : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
 
     return (
       <FailureViewContainer>
         <FailureViewImage src={imageUrl} alt="failure view" />
-        <FailureViewHeading darkMode={darkMode}>
+        <FailureViewHeading $darkmode={$darkmode}>
           Oops! Something Went Wrong
         </FailureViewHeading>
-        <FailureViewDescription darkMode={darkMode}>
+        <FailureViewDescription $darkmode={$darkmode}>
           We are having some trouble to complete your request. Please try again.
         </FailureViewDescription>
         <RetryButton type="button" onClick={this.getVideosList}>
@@ -152,14 +152,14 @@ class Home extends Component {
     </div>
   )
 
-  renderViews = darkMode => {
+  renderViews = $darkmode => {
     const {apiStatus} = this.state
 
     switch (apiStatus) {
       case apiStatusConstants.success:
-        return this.renderSuccessView(darkMode)
+        return this.renderSuccessView($darkmode)
       case apiStatusConstants.failure:
-        return this.renderFailueView(darkMode)
+        return this.renderFailureView($darkmode)
       default:
         return this.renderLoadingView()
     }
@@ -183,7 +183,7 @@ class Home extends Component {
     </BannerBackgroundImage>
   )
 
-  renderSearchBar = darkMode => {
+  renderSearchBar = $darkmode => {
     const {searchInput} = this.state
 
     const onChangeSearchInput = event => {
@@ -196,15 +196,15 @@ class Home extends Component {
           type="search"
           value={searchInput}
           onChange={onChangeSearchInput}
-          darkMode={darkMode}
+          $darkmode={$darkmode}
         />
         <SearchButton
           type="button"
           onClick={this.getVideosList}
           data-testid="searchButton"
-          darkMode={darkMode}
+          $darkmode={$darkmode}
         >
-          <SearchIcon darkMode={darkMode} />
+          <SearchIcon $darkmode={$darkmode} />
         </SearchButton>
       </SearchInputContainer>
     )
@@ -215,14 +215,14 @@ class Home extends Component {
       <RouteLayout>
         <ThemeContext.Consumer>
           {value => {
-            const {darkMode} = value
+            const {$darkmode} = value
             const {showBanner} = this.state
 
             return (
-              <HomeContainer darkMode={darkMode} data-testid="home">
+              <HomeContainer $darkmode={$darkmode} data-testid="home">
                 {showBanner && this.renderBanner()}
-                {this.renderSearchBar(darkMode)}
-                {this.renderViews(darkMode)}
+                {this.renderSearchBar($darkmode)}
+                {this.renderViews($darkmode)}
               </HomeContainer>
             )
           }}

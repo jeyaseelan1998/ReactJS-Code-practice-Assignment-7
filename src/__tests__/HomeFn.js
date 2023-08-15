@@ -169,17 +169,13 @@ const videoDetailsResponse = {
   },
 }
 
-const homeVideosApiUrl =
-  'https://apis.ccbp.in/videos/all'
+const homeVideosApiUrl = 'https://apis.ccbp.in/videos/all'
 
-const trendingVideosApiUrl =
-  'https://apis.ccbp.in/videos/trending'
+const trendingVideosApiUrl = 'https://apis.ccbp.in/videos/trending'
 
-const gamingVideosApiUrl =
-  'https://apis.ccbp.in/videos/gaming'
+const gamingVideosApiUrl = 'https://apis.ccbp.in/videos/gaming'
 
-const videoDetailsApiUrl =
-  'https://apis.ccbp.in/videos/:id'
+const videoDetailsApiUrl = 'https://apis.ccbp.in/videos/:id'
 
 const handlers = [
   rest.get(homeVideosApiUrl, (req, res, ctx) => res(ctx.json(videosResponse))),

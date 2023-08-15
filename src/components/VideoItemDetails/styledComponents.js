@@ -8,7 +8,7 @@ export const VideoItemDetailContainer = styled.div`
   flex-grow: 1;
   height: 90vh;
   overflow-y: auto;
-  background-color: ${props => (props.darkMode ? '#0f0f0f' : '#f9f9f9')};
+  background-color: ${props => (props.$darkmode ? '#0f0f0f' : '#f9f9f9')};
   display: flex;
   flex-direction: column;
   padding: 0 25px;
@@ -21,7 +21,7 @@ export const FailureViewContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* background-color: ${props => (props.darkMode ? '#181818' : '#ffffff')}; */
+  /* background-color: ${props => (props.$darkmode ? '#181818' : '#ffffff')}; */
   /* overflow-y: auto; */
 `
 
@@ -35,7 +35,7 @@ export const FailureViewHeading = styled.h1`
   font-size: 28px;
   font-weight: 600;
   line-height: 1.2;
-  color: ${props => (props.darkMode ? '#f5f6f8' : ' #00306e')};
+  color: ${props => (props.$darkmode ? '#f5f6f8' : ' #00306e')};
 `
 
 export const FailureViewDescription = styled.p`
@@ -45,7 +45,7 @@ export const FailureViewDescription = styled.p`
   font-family: Roboto;
   font-size: 14px;
   font-weight: 500;
-  color: ${props => (props.darkMode ? '#ebebeb' : '#7e858e')};
+  color: ${props => (props.$darkmode ? '#ebebeb' : '#7e858e')};
 `
 
 export const RetryButton = styled.button`
@@ -68,7 +68,7 @@ export const VideoName = styled.p`
   font-family: Roboto;
   font-weight: 500;
   font-size: 14px;
-  color: ${props => (props.darkMode ? '#f9f9f9' : '#181818')};
+  color: ${props => (props.$darkmode ? '#f9f9f9' : '#181818')};
 `
 
 export const ChannelLogo = styled.img`
@@ -83,7 +83,7 @@ export const ChannelName = styled.p`
   font-family: Roboto;
   font-weight: 500;
   font-size: 14px;
-  color: ${props => (props.darkMode ? '#f9f9f9' : '#181818')};
+  color: ${props => (props.$darkmode ? '#f9f9f9' : '#181818')};
 `
 
 export const StatisticsContainer = styled.div`

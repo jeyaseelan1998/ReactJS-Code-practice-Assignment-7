@@ -12,16 +12,16 @@ import {
 const NotFound = () => (
   <ThemeContext.Consumer>
     {value => {
-      const {darkMode} = value
+      const {$darkmode} = value
       const imageUrl = `https://assets.ccbp.in/frontend/react-js/nxt-watch-not-found-${
-        darkMode ? 'dark' : 'light'
+        $darkmode ? 'dark' : 'light'
       }-theme-img.png`
 
       return (
         <RouteLayout>
-          <NotFoundContainer darkMode={darkMode}>
+          <NotFoundContainer $darkmode={$darkmode}>
             <NotFoundImage src={imageUrl} alt="not found" />
-            <NotFoundHeading darkMode={darkMode}>
+            <NotFoundHeading $darkmode={$darkmode}>
               Page Not Found
             </NotFoundHeading>
             <NotFoundDescription>

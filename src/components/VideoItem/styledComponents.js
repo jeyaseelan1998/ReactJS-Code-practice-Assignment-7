@@ -36,7 +36,7 @@ export const VideoName = styled.p`
   font-family: Roboto;
   font-weight: 500;
   font-size: 14px;
-  color: ${props => (props.darkMode ? '#f9f9f9' : '#181818')};
+  color: ${props => (props.$darkmode ? '#f9f9f9' : '#181818')};
 `
 
 export const ChannelName = styled.p`

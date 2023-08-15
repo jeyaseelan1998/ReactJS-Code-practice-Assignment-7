@@ -1,5 +1,3 @@
-import {formatDistanceToNow} from 'date-fns'
-
 import ThemeContext from '../../context/ThemeContext'
 
 import {
@@ -18,14 +16,14 @@ const GamingVideoItem = props => {
   return (
     <ThemeContext.Consumer>
       {value => {
-        const {darkMode} = value
+        const {$darkmode} = value
 
         return (
           <VideoItemList>
             <VideoLink to={`/videos/${id}`}>
               <VideoThumbnail src={thumbnailUrl} alt="video thumbnail" />
               <VideoDetails>
-                <VideoName darkMode={darkMode}>{title}</VideoName>
+                <VideoName $darkmode={$darkmode}>{title}</VideoName>
 
                 <Views>{viewCount} Watching Worldwide</Views>
               </VideoDetails>

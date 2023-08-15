@@ -83,18 +83,18 @@ class Trending extends Component {
     </div>
   )
 
-  renderFailueView = darkMode => {
-    const imageUrl = darkMode
+  renderFailureView = $darkmode => {
+    const imageUrl = $darkmode
       ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
       : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
 
     return (
       <FailureViewContainer>
         <FailureViewImage src={imageUrl} alt="failure view" />
-        <FailureViewHeading darkMode={darkMode}>
+        <FailureViewHeading $darkmode={$darkmode}>
           Oops! Something Went Wrong
         </FailureViewHeading>
-        <FailureViewDescription darkMode={darkMode}>
+        <FailureViewDescription $darkmode={$darkmode}>
           We are having some trouble to complete your request. Please try again.
         </FailureViewDescription>
         <RetryButton type="button" onClick={this.getTrendingVideosList}>
@@ -104,16 +104,16 @@ class Trending extends Component {
     )
   }
 
-  renderSuccessView = darkMode => {
+  renderSuccessView = $darkmode => {
     const {trendingVideosList} = this.state
 
     return (
       <>
-        <Header darkMode={darkMode}>
-          <IconContainer darkMode={darkMode}>
+        <Header $darkmode={$darkmode}>
+          <IconContainer $darkmode={$darkmode}>
             <TrendingIcon />
           </IconContainer>
-          <Heading darkMode={darkMode}>Trending Videos</Heading>
+          <Heading $darkmode={$darkmode}>Trending Videos</Heading>
         </Header>
         <VideosList>
           {trendingVideosList.map(eachVideo => (
@@ -124,14 +124,14 @@ class Trending extends Component {
     )
   }
 
-  renderViews = darkMode => {
+  renderViews = $darkmode => {
     const {apiStatus} = this.state
 
     switch (apiStatus) {
       case apiStatusConstants.success:
-        return this.renderSuccessView(darkMode)
+        return this.renderSuccessView($darkmode)
       case apiStatusConstants.failure:
-        return this.renderFailueView(darkMode)
+        return this.renderFailureView($darkmode)
       default:
         return this.renderLoadingView()
     }
@@ -141,11 +141,11 @@ class Trending extends Component {
     return (
       <ThemeContext.Consumer>
         {value => {
-          const {darkMode} = value
+          const {$darkmode} = value
           return (
             <RouteLayout>
-              <TrendingContainer darkMode={darkMode} data-testid="trending">
-                {this.renderViews(darkMode)}
+              <TrendingContainer $darkmode={$darkmode} data-testid="trending">
+                {this.renderViews($darkmode)}
               </TrendingContainer>
             </RouteLayout>
           )

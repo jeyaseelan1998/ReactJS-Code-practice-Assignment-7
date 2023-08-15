@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
-import {BsDot} from 'react-icons/bs'
 
 export const VideoItemList = styled.li`
   list-style: none;
@@ -33,7 +32,7 @@ export const VideoName = styled.p`
   font-family: Roboto;
   font-weight: 500;
   font-size: 24px;
-  color: ${props => (props.darkMode ? '#f9f9f9' : '#181818')};
+  color: ${props => (props.$darkmode ? '#f9f9f9' : '#181818')};
 `
 
 export const Views = styled.p`

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const LoginRouteContainer = styled.div`
   min-height: 100vh;
-  background-color: ${props => (props.darkMode ? '#212121' : '#ffffff')};
+  background-color: ${props => (props.$darkmode ? '#212121' : '#ffffff')};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,8 +14,8 @@ export const LoginForm = styled.form`
   max-width: 380px;
   padding: 35px 25px;
   border-radius: 12px;
-  background-color: ${props => (props.darkMode ? '#000' : '#fff')};
-  ${props => (props.darkMode ? '' : 'box-shadow: 0px 5px 15px #cccccc;')}
+  background-color: ${props => (props.$darkmode ? '#000' : '#fff')};
+  ${props => (props.$darkmode ? '' : 'box-shadow: 0px 5px 15px #cccccc;')}
   display: flex;
   flex-direction: column;
 `
@@ -28,14 +28,14 @@ export const LabelName = styled.label`
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 8px;
-  color: ${props => (props.darkMode ? '#f8fafc' : '#64748b')};
+  color: ${props => (props.$darkmode ? '#f8fafc' : '#64748b')};
   user-select: none;
 `
 
 export const InputField = styled.input`
   font-size: 14px;
   font-weight: 500;
-  color: ${props => (props.darkMode ? '#f8fafc' : '#1e293b')};
+  color: ${props => (props.$darkmode ? '#f8fafc' : '#1e293b')};
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #94a3b8;
@@ -58,7 +58,7 @@ export const CheckboxInput = styled.input`
 export const CheckboxInputLabel = styled.label`
   font-size: 16px;
   font-weight: 500;
-  color: ${props => (props.darkMode ? '#e2e8f0' : '#475569')};
+  color: ${props => (props.$darkmode ? '#e2e8f0' : '#475569')};
   user-select: none;
 `
 export const Button = styled.button`
@@ -73,7 +73,7 @@ export const Button = styled.button`
   border-radius: 4px;
 `
 export const ErrorMsg = styled.p`
-  color: ${props => (props.darkMode ? '#ff0b37' : '#ff0000')};
+  color: ${props => (props.$darkmode ? '#ff0b37' : '#ff0000')};
   font-size: 14px;
   font-weight: 500;
   margin-top: 5px;

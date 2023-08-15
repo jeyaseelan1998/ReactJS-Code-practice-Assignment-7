@@ -18,37 +18,37 @@ import {
 } from './styledComponents'
 
 const SavedVideos = () => {
-  const renderEmptyView = darkMode => (
+  const renderEmptyView = $darkmode => (
     <EmptyViewContainer>
       <EmptyViewImage
         src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
         alt="no saved videos"
       />
-      <EmptyViewHeading darkMode={darkMode}>
+      <EmptyViewHeading $darkmode={$darkmode}>
         No saved videos found
       </EmptyViewHeading>
-      <EmptyViewDescription darkMode={darkMode}>
+      <EmptyViewDescription $darkmode={$darkmode}>
         You can save your videos while watching them
       </EmptyViewDescription>
     </EmptyViewContainer>
   )
 
-  const renderSavedVideosList = darkMode => (
+  const renderSavedVideosList = $darkmode => (
     <VideoContext.Consumer>
       {value => {
         const {savedVideos} = value
 
         if (savedVideos.length === 0) {
-          return renderEmptyView(darkMode)
+          return renderEmptyView($darkmode)
         }
 
         return (
           <>
-            <Header darkMode={darkMode}>
-              <IconContainer darkMode={darkMode}>
+            <Header $darkmode={$darkmode}>
+              <IconContainer $darkmode={$darkmode}>
                 <TrendingIcon />
               </IconContainer>
-              <Heading darkMode={darkMode}>Saved Videos</Heading>
+              <Heading $darkmode={$darkmode}>Saved Videos</Heading>
             </Header>
             <VideosList>
               {savedVideos.map(eachVideo => (
@@ -64,12 +64,15 @@ const SavedVideos = () => {
   return (
     <ThemeContext.Consumer>
       {value => {
-        const {darkMode} = value
+        const {$darkmode} = value
 
         return (
           <RouteLayout>
-            <SavedVideosContainer darkMode={darkMode} data-testid="savedVideos">
-              {renderSavedVideosList(darkMode)}
+            <SavedVideosContainer
+              $darkmode={$darkmode}
+              data-testid="savedVideos"
+            >
+              {renderSavedVideosList($darkmode)}
             </SavedVideosContainer>
           </RouteLayout>
         )

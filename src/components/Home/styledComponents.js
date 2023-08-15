@@ -6,7 +6,7 @@ export const HomeContainer = styled.div`
   flex-grow: 1;
   height: 90vh;
   overflow-y: auto;
-  background-color: ${props => (props.darkMode ? '#181818' : '#f9f9f9')};
+  background-color: ${props => (props.$darkmode ? '#181818' : '#f9f9f9')};
   display: flex;
   flex-direction: column;
 `
@@ -40,7 +40,7 @@ export const BannerDescription = styled.p`
 export const CloseIcon = styled(AiOutlineClose)`
   height: 15px;
   width: 15px;
-  color: ${props => (props.darkMode ? '#f1f1f1' : '#1e293b')};
+  color: ${props => (props.$darkmode ? '#f1f1f1' : '#1e293b')};
 `
 
 export const Button = styled.button`
@@ -75,7 +75,7 @@ export const FailureViewContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* background-color: ${props => (props.darkMode ? '#181818' : '#ffffff')}; */
+  /* background-color: ${props => (props.$darkmode ? '#181818' : '#ffffff')}; */
   /* overflow-y: auto; */
 `
 
@@ -89,7 +89,7 @@ export const FailureViewHeading = styled.h1`
   font-size: 24px;
   font-weight: 600;
   line-height: 1.2;
-  color: ${props => (props.darkMode ? '#f5f6f8' : ' #00306e')};
+  color: ${props => (props.$darkmode ? '#f5f6f8' : ' #00306e')};
 `
 
 export const FailureViewDescription = styled.p`
@@ -98,7 +98,7 @@ export const FailureViewDescription = styled.p`
   font-family: Roboto;
   font-size: 12px;
   font-weight: 500;
-  color: ${props => (props.darkMode ? '#ebebeb' : '#7e858e')};
+  color: ${props => (props.$darkmode ? '#ebebeb' : '#7e858e')};
 `
 
 export const RetryButton = styled.button`
@@ -128,18 +128,18 @@ export const SearchInput = styled.input`
   border: none;
   outline: none;
   flex-grow: 1;
-  background-color: ${props => (props.darkMode ? 'transparent' : '#fff')};
-  color: ${props => (props.darkMode ? '#f4f4f4' : '#313131')};
+  background-color: ${props => (props.$darkmode ? 'transparent' : '#fff')};
+  color: ${props => (props.$darkmode ? '#f4f4f4' : '#313131')};
 `
 
 export const SearchButton = styled(Button)`
   padding: 5px 25px;
   border-left: 1px solid #cbd5e1;
-  background-color: ${props => (props.darkMode ? '#313131' : '#f4f4f4')};
+  background-color: ${props => (props.$darkmode ? '#313131' : '#f4f4f4')};
 `
 
 export const SearchIcon = styled(BiSearch)`
   height: 20px;
   width: 20px;
-  color: ${props => (props.darkMode ? '#f1f1f1' : '#1e293b')};
+  color: ${props => (props.$darkmode ? '#f1f1f1' : '#1e293b')};
 `

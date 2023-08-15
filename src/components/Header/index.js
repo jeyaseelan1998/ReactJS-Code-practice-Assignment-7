@@ -37,15 +37,15 @@ const Header = props => {
   return (
     <ThemeContext.Consumer>
       {value => {
-        const {darkMode, toggleTheme} = value
+        const {$darkmode, toggleTheme} = value
 
-        const websiteLogoUrl = darkMode
+        const websiteLogoUrl = $darkmode
           ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
           : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
 
         const LogoutPopup = close => (
           <>
-            <AlertText darkMode={darkMode}>
+            <AlertText $darkmode={$darkmode}>
               Are you sure, you want to logout?
             </AlertText>
             <ButtonGroup>
@@ -60,7 +60,7 @@ const Header = props => {
         )
 
         return (
-          <HeaderContainer darkMode={darkMode}>
+          <HeaderContainer $darkmode={$darkmode}>
             <NavLink to="/">
               <WebsiteLogo src={websiteLogoUrl} alt="website logo" />
             </NavLink>
@@ -68,7 +68,7 @@ const Header = props => {
             <DesktopHeaderItems>
               <HeaderItem>
                 <Button type="button" onClick={toggleTheme} data-testid="theme">
-                  {darkMode ? <SunIcon /> : <MoonIcon />}
+                  {$darkmode ? <SunIcon /> : <MoonIcon />}
                 </Button>
               </HeaderItem>
               <HeaderItem>
@@ -85,7 +85,7 @@ const Header = props => {
                     </Button>
                   }
                   modal
-                  darkMode={darkMode}
+                  $darkmode={$darkmode}
                 >
                   {LogoutPopup}
                 </StyledLogoutPopup>
@@ -95,23 +95,23 @@ const Header = props => {
             <MobileHeaderItems>
               <HeaderItem>
                 <Button type="button" onClick={toggleTheme} data-testid="theme">
-                  {darkMode ? <SunIcon /> : <MoonIcon />}
+                  {$darkmode ? <SunIcon /> : <MoonIcon />}
                 </Button>
               </HeaderItem>
               <HeaderItem>
                 <StyledPopup
                   trigger={
                     <Button type="button">
-                      <HamburgerMenuIcon darkMode={darkMode} />
+                      <HamburgerMenuIcon $darkmode={$darkmode} />
                     </Button>
                   }
                   modal
-                  darkMode={darkMode}
+                  $darkmode={$darkmode}
                 >
                   {close => (
                     <div className="sidebar-model-container">
                       <CloseButton type="button" onClick={close}>
-                        <CloseIcon darkMode={darkMode} />
+                        <CloseIcon $darkmode={$darkmode} />
                       </CloseButton>
                       <SideBar />
                     </div>
@@ -122,11 +122,11 @@ const Header = props => {
                 <StyledLogoutPopup
                   trigger={
                     <Button type="button">
-                      <LogoutIcon darkMode={darkMode} />
+                      <LogoutIcon $darkmode={$darkmode} />
                     </Button>
                   }
                   modal
-                  darkMode={darkMode}
+                  $darkmode={$darkmode}
                 >
                   {LogoutPopup}
                 </StyledLogoutPopup>

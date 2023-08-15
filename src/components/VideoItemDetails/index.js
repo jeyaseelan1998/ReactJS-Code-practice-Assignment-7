@@ -103,18 +103,18 @@ class VideoItemDetails extends Component {
     }
   }
 
-  renderFailueView = darkMode => {
-    const imageUrl = darkMode
+  renderFailureView = $darkmode => {
+    const imageUrl = $darkmode
       ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
       : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
 
     return (
       <FailureViewContainer>
         <FailureViewImage src={imageUrl} alt="failure view" />
-        <FailureViewHeading darkMode={darkMode}>
+        <FailureViewHeading $darkmode={$darkmode}>
           Oops! Something Went Wrong
         </FailureViewHeading>
-        <FailureViewDescription darkMode={darkMode}>
+        <FailureViewDescription $darkmode={$darkmode}>
           We are having some trouble to complete your request. Please try again.
         </FailureViewDescription>
         <RetryButton type="button" onClick={this.getVideoItemDetails}>
@@ -130,7 +130,7 @@ class VideoItemDetails extends Component {
     </div>
   )
 
-  renderSuccessView = darkMode => {
+  renderSuccessView = $darkmode => {
     const {videoItemDetails} = this.state
     const {
       id,
@@ -146,13 +146,7 @@ class VideoItemDetails extends Component {
     return (
       <VideoContext.Consumer>
         {value => {
-          const {
-            onRemoveVideo,
-            onSaveVideo,
-            onLikeVideo,
-            onDisLikeVideo,
-            savedVideos,
-          } = value
+          const {onRemoveVideo, onSaveVideo, savedVideos} = value
 
           const isAlreadyVideoSaved =
             savedVideos.find(eachVideo => eachVideo.id === id) !== undefined
@@ -176,9 +170,6 @@ class VideoItemDetails extends Component {
                     : reactionTypesConstants.liked,
               },
             }))
-            if (isAlreadyVideoSaved) {
-              onLikeVideo(id)
-            }
           }
 
           const onClickDislikeButtom = () => {
@@ -192,9 +183,6 @@ class VideoItemDetails extends Component {
                     : reactionTypesConstants.disliked,
               },
             }))
-            if (isAlreadyVideoSaved) {
-              onDisLikeVideo(id)
-            }
           }
 
           return (
@@ -205,7 +193,7 @@ class VideoItemDetails extends Component {
                 height="450px"
                 controls
               />
-              <VideoName darkMode={darkMode}>{title}</VideoName>
+              <VideoName $darkmode={$darkmode}>{title}</VideoName>
               <StatisticsContainer>
                 <Statistics>
                   <StatisticsText>{viewCount}views</StatisticsText>
@@ -249,7 +237,9 @@ class VideoItemDetails extends Component {
                 <ChannelLogo src={channel.profileImageUrl} alt="channel logo" />
 
                 <div>
-                  <ChannelName darkMode={darkMode}>{channel.name}</ChannelName>
+                  <ChannelName $darkmode={$darkmode}>
+                    {channel.name}
+                  </ChannelName>
                   <StatisticsText>
                     {channel.subscriberCount} subscribers
                   </StatisticsText>
@@ -263,14 +253,14 @@ class VideoItemDetails extends Component {
     )
   }
 
-  renderViews = darkMode => {
+  renderViews = $darkmode => {
     const {apiStatus} = this.state
 
     switch (apiStatus) {
       case apiStatusConstants.success:
-        return this.renderSuccessView(darkMode)
+        return this.renderSuccessView($darkmode)
       case apiStatusConstants.failure:
-        return this.renderFailueView(darkMode)
+        return this.renderFailureView($darkmode)
       default:
         return this.renderLoadingView()
     }
@@ -280,15 +270,15 @@ class VideoItemDetails extends Component {
     return (
       <ThemeContext.Consumer>
         {value => {
-          const {darkMode} = value
+          const {$darkmode} = value
 
           return (
             <RouteLayout>
               <VideoItemDetailContainer
-                darkMode={darkMode}
+                $darkmode={$darkmode}
                 data-testid="videoItemDetails"
               >
-                {this.renderViews(darkMode)}
+                {this.renderViews($darkmode)}
               </VideoItemDetailContainer>
             </RouteLayout>
           )

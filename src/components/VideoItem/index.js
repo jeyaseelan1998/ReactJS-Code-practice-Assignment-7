@@ -28,9 +28,9 @@ const VideoItem = props => {
   const getVideoName = () => (
     <ThemeContext.Consumer>
       {value => {
-        const {darkMode} = value
+        const {$darkmode} = value
 
-        return <VideoName darkMode={darkMode}>{title}</VideoName>
+        return <VideoName $darkmode={$darkmode}>{title}</VideoName>
       }}
     </ThemeContext.Consumer>
   )
