@@ -10,7 +10,6 @@ import {
   ChannelName,
   DotIcon,
   Statistics,
-  Button,
 } from './styledComponents'
 
 import ThemeContext from '../../context/ThemeContext'
@@ -50,7 +49,7 @@ const VideoItem = props => {
               <ChannelName>{viewCount}views</ChannelName>
               <DotIcon />
               <ChannelName>
-                {formatDistanceToNow(new Date(publishedAt))}
+                {formatDistanceToNow(new Date(publishedAt))} ago
               </ChannelName>
             </Statistics>
           </div>

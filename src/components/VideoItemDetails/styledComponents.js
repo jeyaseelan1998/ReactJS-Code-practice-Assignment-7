@@ -8,7 +8,7 @@ export const VideoItemDetailContainer = styled.div`
   flex-grow: 1;
   height: 90vh;
   overflow-y: auto;
-  background-color: ${props => (props.darkMode ? '#181818' : '#f9f9f9')};
+  background-color: ${props => (props.darkMode ? '#0f0f0f' : '#f9f9f9')};
   display: flex;
   flex-direction: column;
   padding: 0 25px;

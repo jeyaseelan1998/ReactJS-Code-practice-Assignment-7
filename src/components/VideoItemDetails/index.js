@@ -211,7 +211,7 @@ class VideoItemDetails extends Component {
                   <StatisticsText>{viewCount}views</StatisticsText>
                   <DotIcon />
                   <StatisticsText>
-                    {formatDistanceToNow(new Date(publishedAt))}
+                    {formatDistanceToNow(new Date(publishedAt))} ago
                   </StatisticsText>
                 </Statistics>
 
@@ -238,7 +238,7 @@ class VideoItemDetails extends Component {
                     onClick={onClickSaveVideo}
                   >
                     <PlaylistAddIcon />
-                    Save
+                    {isAlreadyVideoSaved ? 'Saved' : 'Save'}
                   </Button>
                 </Statistics>
               </StatisticsContainer>

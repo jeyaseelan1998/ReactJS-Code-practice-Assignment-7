@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import {AiOutlineClose} from 'react-icons/ai'
+import {BiSearch} from 'react-icons/bi'
 
 export const HomeContainer = styled.div`
   flex-grow: 1;
@@ -64,6 +65,7 @@ export const VideosListContainer = styled.ul`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-top: 0;
 `
 
 export const FailureViewContainer = styled.div`
@@ -111,4 +113,33 @@ export const RetryButton = styled.button`
   border-radius: 8px;
   padding: 12px 24px;
   cursor: pointer;
+`
+
+export const SearchInputContainer = styled.div`
+  border: 1px solid #cbd5e1;
+  max-width: 450px;
+  display: flex;
+  margin: 15px;
+  margin-left: 35px;
+`
+
+export const SearchInput = styled.input`
+  padding: 10px;
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  background-color: ${props => (props.darkMode ? 'transparent' : '#fff')};
+  color: ${props => (props.darkMode ? '#f4f4f4' : '#313131')};
+`
+
+export const SearchButton = styled(Button)`
+  padding: 5px 25px;
+  border-left: 1px solid #cbd5e1;
+  background-color: ${props => (props.darkMode ? '#313131' : '#f4f4f4')};
+`
+
+export const SearchIcon = styled(BiSearch)`
+  height: 20px;
+  width: 20px;
+  color: ${props => (props.darkMode ? '#f1f1f1' : '#1e293b')};
 `

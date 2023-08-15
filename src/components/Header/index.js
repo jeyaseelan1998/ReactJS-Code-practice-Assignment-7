@@ -46,7 +46,7 @@ const Header = props => {
         const LogoutPopup = close => (
           <>
             <AlertText darkMode={darkMode}>
-              Are you sure you want to logout?
+              Are you sure, you want to logout?
             </AlertText>
             <ButtonGroup>
               <CancelButton type="button" onClick={close}>

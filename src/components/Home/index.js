@@ -20,6 +20,10 @@ import {
   FailureViewHeading,
   FailureViewDescription,
   RetryButton,
+  SearchInputContainer,
+  SearchButton,
+  SearchInput,
+  SearchIcon,
 } from './styledComponents'
 
 const apiStatusConstants = {
@@ -34,6 +38,7 @@ class Home extends Component {
     apiStatus: apiStatusConstants.initial,
     videosList: [],
     searchInput: '',
+    showBanner: true,
   }
 
   componentDidMount() {
@@ -69,7 +74,7 @@ class Home extends Component {
     const response = await fetch(apiUrl, options)
     const data = await response.json()
 
-    if (response.ok) {
+    if (response.ok === true) {
       const updatedData = this.getUpdatedData(data.videos)
       this.setState({
         apiStatus: apiStatusConstants.success,
@@ -80,8 +85,36 @@ class Home extends Component {
     }
   }
 
-  renderSuccessView = () => {
+  closeTheBanner = () => {
+    this.setState({showBanner: false})
+  }
+
+  renderEmptyView = darkMode => {
+    const imageUrl =
+      'https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png'
+
+    return (
+      <FailureViewContainer>
+        <FailureViewImage src={imageUrl} alt="no videos" />
+        <FailureViewHeading darkMode={darkMode}>
+          No Search results found
+        </FailureViewHeading>
+        <FailureViewDescription darkMode={darkMode}>
+          Try different key words or remove search filter
+        </FailureViewDescription>
+        <RetryButton type="button" onClick={this.getVideosList}>
+          Retry
+        </RetryButton>
+      </FailureViewContainer>
+    )
+  }
+
+  renderSuccessView = darkMode => {
     const {videosList} = this.state
+
+    if (videosList.length === 0) {
+      return this.renderEmptyView(darkMode)
+    }
 
     return (
       <VideosListContainer>
@@ -124,12 +157,57 @@ class Home extends Component {
 
     switch (apiStatus) {
       case apiStatusConstants.success:
-        return this.renderSuccessView()
+        return this.renderSuccessView(darkMode)
       case apiStatusConstants.failure:
         return this.renderFailueView(darkMode)
       default:
         return this.renderLoadingView()
     }
+  }
+
+  renderBanner = () => (
+    <BannerBackgroundImage data-testid="banner">
+      <div>
+        <WebsiteLogo
+          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+          alt="nxt watch logo"
+        />
+        <BannerDescription>
+          Buy Nxt Watch Premium prepaid plans with UPI
+        </BannerDescription>
+        <GetItNowButton type="button">GET IT NOW</GetItNowButton>
+      </div>
+      <Button type="button" data-testid="close" onClick={this.closeTheBanner}>
+        <CloseIcon />
+      </Button>
+    </BannerBackgroundImage>
+  )
+
+  renderSearchBar = darkMode => {
+    const {searchInput} = this.state
+
+    const onChangeSearchInput = event => {
+      this.setState({searchInput: event.target.value})
+    }
+
+    return (
+      <SearchInputContainer>
+        <SearchInput
+          type="search"
+          value={searchInput}
+          onChange={onChangeSearchInput}
+          darkMode={darkMode}
+        />
+        <SearchButton
+          type="button"
+          onClick={this.getVideosList}
+          data-testid="searchButton"
+          darkMode={darkMode}
+        >
+          <SearchIcon darkMode={darkMode} />
+        </SearchButton>
+      </SearchInputContainer>
+    )
   }
 
   render() {
@@ -138,24 +216,12 @@ class Home extends Component {
         <ThemeContext.Consumer>
           {value => {
             const {darkMode} = value
+            const {showBanner} = this.state
 
             return (
               <HomeContainer darkMode={darkMode} data-testid="home">
-                <BannerBackgroundImage data-testid="banner">
-                  <div>
-                    <WebsiteLogo
-                      src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                      alt="nxt watch logo"
-                    />
-                    <BannerDescription>
-                      Buy Nxt Watch Premium prepaid plans with UPI
-                    </BannerDescription>
-                    <GetItNowButton type="button">GET IT NOW</GetItNowButton>
-                  </div>
-                  <Button type="button" data-testid="close">
-                    <CloseIcon />
-                  </Button>
-                </BannerBackgroundImage>
+                {showBanner && this.renderBanner()}
+                {this.renderSearchBar(darkMode)}
                 {this.renderViews(darkMode)}
               </HomeContainer>
             )
